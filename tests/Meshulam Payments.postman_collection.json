@@ -1,1 +1,247 @@
-
+{
+	"info": {
+		"_postman_id": "f0c0f26e-351f-47b9-9993-8c5a77dc9f92",
+		"name": "Meshulam Payments",
+		"description": "Collection for Meshulam Sandbox – createPaymentProcess API with valid/invalid test cases (Grow home assignment).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40338525"
+	},
+	"item": [
+		{
+			"name": "Create Payment – Valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200 (OK)\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const res = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Response contains property 'url'\", () => {\r",
+							"    pm.expect(res.data).to.have.property(\"url\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Payment URL is valid\", function () {\r",
+							"    pm.expect(res.data.url).to.include(\"https://sandbox.meshulam.co.il/\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "pageCode",
+							"value": "e19e0b687744",
+							"type": "text"
+						},
+						{
+							"key": "userId",
+							"value": "52e95954cd5c1311",
+							"type": "text"
+						},
+						{
+							"key": "sum",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "paymentNum",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ORDER123",
+							"type": "text"
+						},
+						{
+							"key": "pageField[fullName]",
+							"value": "שם מלא",
+							"type": "text"
+						},
+						{
+							"key": "pageField[phone]",
+							"value": "0534738605",
+							"type": "text"
+						},
+						{
+							"key": "pageField[email]",
+							"value": "debbie@meshulam.co.il",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/createPaymentProcess",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"createPaymentProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment – Missing required field",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "pageCode",
+							"value": "e19e0b687744",
+							"type": "text"
+						},
+						{
+							"key": "userId",
+							"value": "52e95954cd5c1311",
+							"type": "text"
+						},
+						{
+							"key": "sum",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "paymentNum",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ORDER123",
+							"type": "text"
+						},
+						{
+							"key": "pageField[fullName]",
+							"value": "שם מלא",
+							"type": "text"
+						},
+						{
+							"key": "pageField[phone]",
+							"value": "0534738605",
+							"type": "text"
+						},
+						{
+							"key": "pageField[email]",
+							"value": "debbie@meshulam.co.il",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/createPaymentProcess",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"createPaymentProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Payment – Sum equals 0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// When sum = 0:\r",
+							"const res = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Verify status is failure (status = 0)\", function () {\r",
+							"    pm.expect(res.status).to.equal(\"0\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify msg includes '0'\", () => {\r",
+							"  pm.expect(res.err.message).to.include(\"0\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "pageCode",
+							"value": "e19e0b687744",
+							"type": "text"
+						},
+						{
+							"key": "userId",
+							"value": "52e95954cd5c1311",
+							"type": "text"
+						},
+						{
+							"key": "sum",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "paymentNum",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ORDER123",
+							"type": "text"
+						},
+						{
+							"key": "pageField[fullName]",
+							"value": "שם מלא",
+							"type": "text"
+						},
+						{
+							"key": "pageField[phone]",
+							"value": "0534738605",
+							"type": "text"
+						},
+						{
+							"key": "pageField[email]",
+							"value": "debbie@meshulam.co.il",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/createPaymentProcess",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"createPaymentProcess"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
