@@ -1,7 +1,7 @@
 # Postman-API-CI-CD
 API testing and CI/CD practice with Postman and GitHub Actions.  
 
-Explanation of api-tests.yml
+Explanation of api-tests.yml:
 
 The api-tests.yml file defines a simple GitHub Actions workflow that runs API tests automatically using Postman’s CLI tool Newman.
 
