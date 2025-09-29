@@ -11,5 +11,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
       - run: npm install -g newman
-      - run: newman run tests/"Meshulam Payments.postman_collection.json"
+      - run: newman run "tests/Meshulam Payments.postman_collection.json"
 
