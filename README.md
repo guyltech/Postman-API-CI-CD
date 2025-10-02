@@ -3,13 +3,13 @@ API testing and CI/CD practice with Postman and GitHub Actions.
 
 This project demonstrates how to automate payment API tests (createPaymentProcess) using Postman’s CLI tool Newman, integrated into a CI/CD pipeline.
 
-#📦 Installation & Setup:
+## 📦 Installation & Setup:
 
 npm install -g newman
 
 newman run tests/Meshulam_Payments.postman_collection.json -e tests/env.json
 
-#✅ Test Coverage for Critical Features:
+## ✅ Test Coverage for Critical Features:
 
 The Postman tests cover the main payment flow and critical validations:
 
@@ -21,7 +21,7 @@ Create Payment – Sum equals 0 – returns an error and no payment is created.
 
 These three cases ensure coverage of the critical features: successful payment creation, mandatory field validation, and protection against invalid amounts.
 
-#📊 Future Improvements:
+## 📊 Future Improvements:
 
 TestRail → I will use this tool because it is very convenient to build a clear tests-tree, and also to see line by line if each test passed or failed.
 
@@ -29,7 +29,7 @@ In addition, it creates a visual pie chart to quickly understand the results.
 
 Allure Reports → For advanced visual test reports.
 
-#📝 Explanation of api-tests.yml:
+## 📝 Explanation of api-tests.yml:
 
 The api-tests.yml file defines a simple GitHub Actions workflow that runs API tests automatically using Postman’s CLI tool Newman.
 
@@ -44,4 +44,4 @@ npm install -g newman → Installs Newman globally on the server.
 newman run tests/Meshulam Payments.postman_collection.json → Executes the exported Postman collection, running all defined requests and test scripts.
 
 
-#Built with ❤️ by Guy Levy
+## Built with ❤️ by Guy Levy
