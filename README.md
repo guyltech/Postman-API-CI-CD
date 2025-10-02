@@ -5,10 +5,7 @@ This project demonstrates how to automate payment API tests (createPaymentProces
 
 📦 Installation & Setup:
 
-Local Installation
-# Install Newman globally
 npm install -g newman
-# Running Tests Locally
 newman run tests/Meshulam_Payments.postman_collection.json -e tests/env.json
 
 ✅ Test Coverage for Critical Features:
